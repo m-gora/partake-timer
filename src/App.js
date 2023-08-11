@@ -6,10 +6,12 @@ let gqlClient = new ApolloClient({
   cache: new InMemoryCache()
 });
 
+let urlParams = new URLSearchParams(window.location.search);
+
 function App() {
   return (
     <ApolloProvider client={ gqlClient }>
-      <EventWidget />
+      <EventWidget teamId={ urlParams.get("teamId") } />
     </ApolloProvider>
   );
 }

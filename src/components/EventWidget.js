@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClock, faUser, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 
-// Define the GraphQL query
-const GET_EVENTS = gql`
+const EventWidget = ({teamId}) => {
+  const GET_EVENTS = gql`
   {
-    events(teamId: 521) {
+    events(teamId: ${teamId}) {
       title
       location
       startsAt
@@ -22,7 +24,6 @@ const GET_EVENTS = gql`
   }
 `;
 
-const EventWidget = () => {
   const { loading, error, data } = useQuery(GET_EVENTS);
   const [backgroundImage, setBackgroundImage] = useState('');
   const [countdown, setCountdown] = useState('');
@@ -59,11 +60,16 @@ const EventWidget = () => {
   if (error) return <div>Error: {error.message}</div>;
 
 const styles = {
+  "title": {
+    fontFace: "bold",
+    
+  },
   "container" : {
     position: 'relative',
-    width: '100%',
-    paddingBottom: '56.25%', /* 16:9 aspect ratio (9 / 16 * 100%) */
+    maxWidth: '600px',
+    aspectRatio: 16 / 9,
     overflow: 'hidden',
+    textShadow: "1px 1px black",
   },
   "bg" : {
     position: 'absolute',
@@ -71,7 +77,7 @@ const styles = {
     left: 0,
     width: '100%',
     height: '100%',
-    backgroundSize: 'cover',
+    objectFit: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     zIndex: 1,
@@ -82,7 +88,7 @@ const styles = {
     left: 0,
     width: '600px',
     padding: '10px',
-    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+    backgroundColor: 'rgba(0, 0, 0, 0.001)',
     color: 'white',
     fontSize: '20px',
     zIndex: 2,
@@ -94,10 +100,10 @@ const styles = {
     <div style={styles.container}>
       <img style={styles.bg} src={`https://cdn.partyverse.app/attachments/${backgroundImage}`}></img>
       <div style={styles.overlay}>
-        <h3>{data.events[0].title}</h3>
-        <p>C: {countdown}</p>
-        <p>A: {data.events[0].attendeeCount}</p>
-        <p>L: {data.events[0].locationData.server.name} &gt; {data.events[0].location}</p>
+        <h3 style={styles.title}>{data.events[0].title}</h3>
+        <p><FontAwesomeIcon icon={ faClock } /> {countdown}</p>
+        <p><FontAwesomeIcon icon={ faUser } /> {data.events[0].attendeeCount}</p>
+        <p><FontAwesomeIcon icon={ faLocationDot } /> {data.events[0].locationData.server.name} : {data.events[0].location}</p>
       </div>
     </div>
   );
