@@ -4,7 +4,7 @@ import { useQuery, gql } from '@apollo/client';
 // Define the GraphQL query
 const GET_EVENTS = gql`
   {
-    events(teamId: 523) {
+    events(teamId: 521) {
       title
       location
       startsAt
@@ -62,23 +62,25 @@ const styles = {
   "container" : {
     position: 'relative',
     width: '100%',
-    height: '400px',
+    paddingBottom: '56.25%', /* 16:9 aspect ratio (9 / 16 * 100%) */
+    overflow: 'hidden',
   },
   "bg" : {
     position: 'absolute',
     top: 0,
     left: 0,
-    maxHeight: '400px',
+    width: '100%',
+    height: '100%',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     zIndex: 1,
-    setBackgroundImage: `url(https://cdn.partyverse.app/attachments/${backgroundImage})`
   },
   "overlay": {
     position: 'absolute',
     bottom: 0,
     left: 0,
+    width: '600px',
     padding: '10px',
     backgroundColor: 'rgba(0, 0, 0, 0.1)',
     color: 'white',
@@ -92,10 +94,10 @@ const styles = {
     <div style={styles.container}>
       <img style={styles.bg} src={`https://cdn.partyverse.app/attachments/${backgroundImage}`}></img>
       <div style={styles.overlay}>
-        <h3 style={{ color: 'pink'}}>{data.events[0].title}</h3>
+        <h3>{data.events[0].title}</h3>
         <p>C: {countdown}</p>
         <p>A: {data.events[0].attendeeCount}</p>
-        <p>L: {data.events[0].locationData.server.name} - {data.events[0].location}</p>
+        <p>L: {data.events[0].locationData.server.name} &gt; {data.events[0].location}</p>
       </div>
     </div>
   );
