@@ -59,52 +59,21 @@ const EventWidget = ({teamId}) => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
-const styles = {
-  "title": {
-    fontFace: "bold",
-    
-  },
-  "container" : {
-    position: 'relative',
-    maxWidth: '600px',
-    aspectRatio: 16 / 9,
-    overflow: 'hidden',
-    textShadow: "1px 1px black",
-  },
-  "bg" : {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    zIndex: 1,
-  },
-  "overlay": {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    width: '600px',
-    padding: '10px',
-    backgroundColor: 'rgba(0, 0, 0, 0.001)',
-    color: 'white',
-    fontSize: '20px',
-    zIndex: 2,
-    fontWeight: 'bold',
+  const styles = {
+    "title": {
+      fontFace: "bold",
+      
+    },
+    "container" : {
+      position: 'relative',
+      overflow: 'hidden'
+    },
   }
-};
+
 
   return (
     <div style={styles.container}>
-      <img style={styles.bg} src={`https://cdn.partyverse.app/attachments/${backgroundImage}`}></img>
-      <div style={styles.overlay}>
-        <h3 style={styles.title}>{data.events[0].title}</h3>
-        <p><FontAwesomeIcon icon={ faClock } /> {countdown}</p>
-        <p><FontAwesomeIcon icon={ faUser } /> {data.events[0].attendeeCount}</p>
-        <p><FontAwesomeIcon icon={ faLocationDot } /> {data.events[0].locationData.server.name} : {data.events[0].location}</p>
-      </div>
+      {countdown}
     </div>
   );
 };
