@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/partake-timer/static/css/main.e6c13ad2.css",
-    "main.js": "/partake-timer/static/js/main.5cdcc0a5.js",
+    "main.js": "/partake-timer/static/js/main.ccd74655.js",
     "static/js/787.8e3d2040.chunk.js": "/partake-timer/static/js/787.8e3d2040.chunk.js",
     "index.html": "/partake-timer/index.html",
     "main.e6c13ad2.css.map": "/partake-timer/static/css/main.e6c13ad2.css.map",
-    "main.5cdcc0a5.js.map": "/partake-timer/static/js/main.5cdcc0a5.js.map",
+    "main.ccd74655.js.map": "/partake-timer/static/js/main.ccd74655.js.map",
     "787.8e3d2040.chunk.js.map": "/partake-timer/static/js/787.8e3d2040.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.5cdcc0a5.js"
+    "static/js/main.ccd74655.js"
   ]
 }
