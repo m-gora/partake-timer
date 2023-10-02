@@ -1,8 +1,8 @@
 {
-  "name": "partake-event-widget",
+  "name": "partake-timer",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://m-gora.github.io/partake-event-widget",
+  "homepage": "https://m-gora.github.io/partake-timer",
   "dependencies": {
     "@apollo/client": "^3.8.1",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
