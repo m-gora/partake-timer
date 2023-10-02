@@ -72,9 +72,7 @@ const EventWidget = ({teamId}) => {
 
 
   return (
-    <div style={styles.container}>
-      {countdown}
-    </div>
+    <div style={styles.container}>{countdown}</div>
   );
 };
 
