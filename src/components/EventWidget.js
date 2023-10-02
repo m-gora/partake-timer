@@ -64,15 +64,16 @@ const EventWidget = ({teamId}) => {
       fontFace: "bold",
       
     },
-    "container" : {
-      position: 'relative',
-      overflow: 'hidden'
+    "heading" : {
+      color: '#FAFAFA',
+      fontFace: "Roboto, Arial, sans-serif",
+      fontSize: "2.75em"
     },
   }
 
 
   return (
-    <div style={styles.container}>{countdown}</div>
+    <h2 style={styles.heading}>{countdown}</h2>
   );
 };
 
