@@ -67,7 +67,7 @@ const EventWidget = ({teamId}) => {
     "heading" : {
       color: '#FAFAFA',
       fontFace: "Roboto, Arial, sans-serif",
-      fontSize: "2.75em"
+      fontSize: "2.5em"
     },
   }
 
