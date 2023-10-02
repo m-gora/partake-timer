@@ -67,13 +67,14 @@ const EventWidget = ({teamId}) => {
     "heading" : {
       color: '#FAFAFA',
       fontFace: "Roboto, Arial, sans-serif",
-      fontSize: "2.5em"
+      fontSize: "2.5em",
+      textAlign: "center"
     },
   }
 
 
   return (
-    <h2 style={styles.heading}>{countdown}</h2>
+    <p style={styles.heading}>{countdown}</p>
   );
 };
 
